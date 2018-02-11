@@ -9,7 +9,7 @@ public class Projectile : MonoBehaviour {
     public Rigidbody2D rb;
     public GameObject onHitPS;
 
-    public bool hasCollided = false;
+    private bool hasCollided = false;
 
 	// Use this for initialization
 	void OnEnable () {
@@ -28,7 +28,7 @@ public class Projectile : MonoBehaviour {
         IDestroyable go = other.GetComponent<IDestroyable>();
         if (go != null && !hasCollided)
         {
-            Debug.Log("Hit enemy:" + other.name);
+            //Debug.Log("Hit enemy:" + other.name);
 
             go.ReceiveDamage(damage);
 
@@ -37,9 +37,11 @@ public class Projectile : MonoBehaviour {
             hitPS.transform.rotation = transform.rotation;
             hitPS.SetActive(true);
             ParticleSystem ps = hitPS.GetComponent<ParticleSystem>();
-            ps.Emit(1);
+            ps.Emit(3);
 
             hasCollided = true;
+
+            gameObject.SetActive(false);
         }  
     }
 

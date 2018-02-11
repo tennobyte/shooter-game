@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4105667325538012}
   - component: {fileID: 33886199357768924}
   - component: {fileID: 23193953834997536}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -39,7 +39,7 @@ GameObject:
   - component: {fileID: 114878419662281890}
   - component: {fileID: 50281914128886188}
   - component: {fileID: 61602116836864056}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: Enemy_bullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -157,7 +157,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.2, y: 0.2}
+  m_Size: {x: 0.1, y: 0.1}
   m_EdgeRadius: 0
 --- !u!114 &114878419662281890
 MonoBehaviour:
@@ -174,4 +174,3 @@ MonoBehaviour:
   damage: 10
   rb: {fileID: 0}
   onHitPS: {fileID: 1001797528538106, guid: 0c144a282a544dd4ea4b3216d4a718d3, type: 2}
-  hasCollided: 0

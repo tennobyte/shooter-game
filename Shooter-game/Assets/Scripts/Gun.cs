@@ -14,6 +14,7 @@ public class Gun : Weapon {
         {
             foreach (Transform spawnPoint in projectileSpawns)
             {
+                AudioManager.instance.PlayShootingSound();
                 //Instantiate(projectile, spawnPoint.transform.position, spawnPoint.transform.rotation);
                 GameObject bullet = PoolManager.instance.GetObject(projectile);
 

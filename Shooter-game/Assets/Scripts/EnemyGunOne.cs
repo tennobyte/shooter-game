@@ -14,6 +14,7 @@ public class EnemyGunOne : Weapon {
         {
             foreach (Transform spawnPoint in projectileSpawns)
             {
+                AudioManager.instance.PlayShootingSound();
                 //Instantiate(projectile, spawnPoint.transform.position, spawnPoint.transform.rotation);
                 GameObject bullet = PoolManager.instance.GetObject(projectile);
 
@@ -21,7 +22,6 @@ public class EnemyGunOne : Weapon {
                 bullet.transform.localRotation = spawnPoint.transform.localRotation;
                 Projectile proj = bullet.GetComponent<Projectile>();
                 proj.SetSpeed(projectileSpeed);
-                bullet.SetActive(true);
                 bullet.SetActive(true);
 
                 //bullet.GetComponent<Projectile>().friendly = true;

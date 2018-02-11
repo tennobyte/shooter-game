@@ -9,16 +9,16 @@ public class LevelLoader : MonoBehaviour {
     public GameObject loadingScreen;
     public GameObject mainMenu;
 
-    public void LoadLevel(int sceneIndex)
+    public void LoadLevel(string sceneName)
     {
         mainMenu.SetActive(false);
         loadingScreen.SetActive(true);
-        StartCoroutine(LoadLevelAsync(sceneIndex));
+        StartCoroutine(LoadLevelAsync(sceneName));
     }
 
-    IEnumerator LoadLevelAsync(int sceneIndex)
+    IEnumerator LoadLevelAsync(string sceneName)
     {
-        AsyncOperation loading = SceneManager.LoadSceneAsync(sceneIndex);
+        AsyncOperation loading = SceneManager.LoadSceneAsync(sceneName);
         while (!loading.isDone)
         {
             float loadingProgress = Mathf.Clamp01(loading.progress / .9f);

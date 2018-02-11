@@ -18,11 +18,12 @@ public class EnemyGunTwo : Weapon {
         {
             foreach (Transform spawnPoint in projectileSpawns)
             {
+                AudioManager.instance.PlayShootingSound();
                 //Instantiate(projectile, spawnPoint.transform.position, spawnPoint.transform.rotation);
                 GameObject bullet = PoolManager.instance.GetObject(projectile);
 
-                bullet.transform.localPosition = spawnPoint.transform.position;
-                bullet.transform.localRotation = spawnPoint.transform.localRotation;
+                bullet.transform.position = spawnPoint.transform.position;
+                bullet.transform.rotation = spawnPoint.transform.rotation;
                 bullet.transform.Rotate(0, 0, Random.Range(-20,20));
                 Projectile proj = bullet.GetComponent<Projectile>();
                 proj.SetSpeed(projectileSpeed);
