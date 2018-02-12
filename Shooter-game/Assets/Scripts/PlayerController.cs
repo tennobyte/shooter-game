@@ -74,10 +74,17 @@ public class PlayerController : MonoBehaviour, IDestroyable {
 
     public void UpgradeWeapon()
     {
-        weaponNum = Mathf.Clamp(weaponNum + 1,0,weapons.Length-1);
-        currentWeapon.gameObject.SetActive(false);
-        currentWeapon = weapons[weaponNum];
-        currentWeapon.gameObject.SetActive(true);
+        if (weaponNum == weapons.Length - 1)
+        {
+            GetHealth(30);
+        } 
+        else
+        {
+            weaponNum = Mathf.Clamp(weaponNum + 1, 0, weapons.Length - 1);
+            currentWeapon.gameObject.SetActive(false);
+            currentWeapon = weapons[weaponNum];
+            currentWeapon.gameObject.SetActive(true);
+        }
     }
 
     public void Destroy()

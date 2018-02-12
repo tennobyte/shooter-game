@@ -27,7 +27,7 @@ public class LazerGun : Weapon {
     }
 
 
-	void Update () {
+    void Update () {
 
         if (isActive)
         {

@@ -111,7 +111,7 @@ public class SpawnManager : MonoBehaviour {
 
     public void SpawnFormation(Formation form)
     {
-        Formation formation = Instantiate(form, new Vector3(spawnPosition.position.x + Random.Range(-spawnBoundary, spawnBoundary), spawnPosition.position.y, Random.Range(0, 10)), Quaternion.identity);
+        Formation formation = Instantiate(form, new Vector3(spawnPosition.position.x + Random.Range(-spawnBoundary, spawnBoundary), spawnPosition.position.y + Random.Range(-1, 1), Random.Range(0, 10)), Quaternion.identity);
         //заполняем формацию кораблями
         Destroy(formation.gameObject,30);
         foreach (Transform position in formation.positions)

@@ -25,12 +25,14 @@ public class BossShip : MonoBehaviour, IDestroyable, ISwitchable
     public void SwitchOn()
     {
         shootingEnabled = true;
+        //lazer.GetComponent<LazerGun>().isActive = true;
         foreach (BossTurret turret in turrets)
         {
             turret.isActive = true;
             turret.GetComponent<Collider2D>().enabled = true;
             turret.health = turret.maxHealth;
         }
+        //lazer.GetComponent<Animator>().enabled = true;
     }
 
     void OnEnable()
@@ -43,6 +45,7 @@ public class BossShip : MonoBehaviour, IDestroyable, ISwitchable
             turret.isActive = false;
             turret.GetComponent<Collider2D>().enabled = true;
         }
+
     }
 
     // Update is called once per frame
@@ -89,6 +92,9 @@ public class BossShip : MonoBehaviour, IDestroyable, ISwitchable
         hitPS.SetActive(true);
         ParticleSystem ps = hitPS.GetComponent<ParticleSystem>();
         ps.Emit(20);
+        lazer.GetComponent<LazerGun>().DeactivateLaser();
+        lazer.transform.localRotation = Quaternion.Euler(0,-180,0);
+        lazer.GetComponent<Animator>().Play("Idle");
         gameObject.SetActive(false);
     }
 }
